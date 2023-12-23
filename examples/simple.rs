@@ -1,17 +1,10 @@
-use std::fs::read_to_string;
-use bevy::{log::LogPlugin, prelude::*};
-use bevy_easy_localize::Localize;
+use bevy::prelude::*;
+use bevy_window_icon::WindowIconPlugin;
 pub fn main() {
     App::new()
-        .add_plugins(LogPlugin::default())
-        .insert_resource(Localize::from_data(
-            &read_to_string("examples/test.csv").unwrap(),
+        .add_plugins((
+            DefaultPlugins,
+            WindowIconPlugin::new("examples/assets/icon.png")
         ))
-        .add_systems(Startup, hello)
         .run();
-}
-
-fn hello(mut localize: ResMut<Localize>) {
-    localize.set_language("German");
-    println!("{}", localize.get("hello"));
 }
