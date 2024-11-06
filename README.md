@@ -18,6 +18,7 @@ That's literally it.
 ## Bevy Compatibility
 |bevy|bevy_easy_localize|
 |---|---|
+|0.14|0.4|
 |0.13|0.3|
 |0.12|0.2|
 |0.11|0.1|
