@@ -1,5 +1,4 @@
 use bevy::{prelude::*, winit::WinitWindows};
-use winit::window::Icon;
 ///A bevy window icon plugin. Must be included for the icon to show up.
 pub struct WindowIconPlugin{
     icon_path:String,
@@ -32,7 +31,7 @@ fn set_window_icon(
         let rgba = image.into_raw();
         (rgba, width, height)
     };
-    let icon = Icon::from_rgba(icon_rgba, icon_width, icon_height).unwrap();
+    let icon = winit::window::Icon::from_rgba(icon_rgba, icon_width, icon_height).unwrap();
     for window in windows.windows.values() {
         window.set_window_icon(Some(icon.clone()));
     }
